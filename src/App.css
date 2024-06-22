@@ -1,38 +1,125 @@
-.App {
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.Background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.headerLogo {
+  width: 100vw;
+  height: 25vh;
+  border-radius: 0px 0px 80px 80px;
+  border: 2px solid gray;
+}
+
+.headerTitle {
+  position: absolute;
+  top: 10%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.headerTitle:hover {
+  scale: 1.1;
+  color: white;
+  transition: 0.7s;
+}
+
+.card-container {
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+
+
+.card {
+
+  width: 300px;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
   text-align: center;
+  position: relative;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.card.on {
+  background-color: #d4edda;
+  color: #155724;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.card.off {
+  background-color: #f8d7da;
+  color: #721c24;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 350px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.form input[type="text"],
+.form input[type="password"] {
+  width: 250px;
+  color: black;
+  padding: 10px;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  display: block;
+  margin: 10px auto;
+}
+
+.form button[type="submit"],
+.form button[type="button"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.form button[type="submit"]:hover,
+.form button[type="button"]:hover {
+  background-color: #285e2a;
+}
+
+.reg {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Name,
+.ID {
+  color: white;
 }
