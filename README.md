@@ -1,74 +1,101 @@
-<<<<<<< HEAD
-# Getting Started with Create React App
+Certainly! Here's the revised order:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+1. Set up the Development Environment:
+   - Install Node.js and npm (Node Package Manager) on your machine.
+   - Install MongoDB and ensure it is running.
 
-## Available Scripts
+2. Create a New Project:
+   - Open your terminal and navigate to the desired directory.
+   - Run the following command to create a new MERN project:
 
-In the project directory, you can run:
+     ```
+     npx create-react-app smart-home
+     ```
 
-### `npm start`
+3. Frontend Setup:
+   - Navigate to the project directory:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+     ```
+     cd smart-home
+     ```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+   - Install the required dependencies:
 
-### `npm test`
+     ```
+     npm install axios react-router-dom
+     ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+   - Update the `src/App.js` file with your desired React components and routes.
 
-### `npm run build`
+4. Run the Project:
+   - In one terminal, navigate to the project root directory and start the React development server:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+     ```
+     npm start
+     ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+     ``
+     download the background video from the link below then add it in public folder
+     ``
+[`pexels.com/video/smart-home-button-25951436/`](https://pexels.com/video/smart-home-button-25951436/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+        ``then rename the video to "BGvid2.mp4" and start``
 
-### `npm run eject`
+5. Backend Setup (server.js):
+   - Create a new directory called `server`:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+     ```
+     mkdir server
+     ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   - Inside the `server` directory, create a new file called `server.js` which will contain the backend code.
+   - Install the required dependencies:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+     ```
+     cd server
+     npm init -y
+     npm install express mongoose cors
+     ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   - Create a new file `server.js` and add the following code:
 
-## Learn More
+     ```javascript
+     const express = require('express');
+     const mongoose = require('mongoose');
+     const cors = require('cors');
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+     const app = express();
+     const port = 5000;
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+     // Middleware
+     app.use(cors());
+     app.use(express.json());
 
-### Code Splitting
+     // Routes
+     // Add your API routes here
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+     // Connect to MongoDB
+     mongoose.connect('mongodb://localhost/smart-home', {
+       useNewUrlParser: true,
+       useUnifiedTopology: true,
+     });
+     const connection = mongoose.connection;
+     connection.once('open', () => {
+       console.log('Connected to MongoDB database');
+     });
 
-### Analyzing the Bundle Size
+     // Start the server
+     app.listen(port, () => {
+       console.log(`Server is running on port: ${port}`);
+     });
+     ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+6. GPIO Control:
+   - Install the required libraries to control GPIO pins on your embedded Linux device.
+   - Implement GPIO control logic within your `server.js` file based on the GPIO library you choose to use.
 
-### Making a Progressive Web App
+7. Access the Smart Home Website:
+   - Open your web browser and visit `http://localhost:3000` to access the smart home website.
+   - You can now control your home devices through the website, which communicates with the backend server and interacts with the GPIO drivers on your embedded Linux device.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-=======
-# Smart-Home-IoT
->>>>>>> origin/master
+Remember to adapt the code to fit your specific requirements, including GPIO library usage, device control logic, and additional functionality as needed.
